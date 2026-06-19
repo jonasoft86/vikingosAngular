@@ -1,0 +1,37 @@
+<section id="contacto" class="section contact section--background">
+  <div class="section__background" aria-hidden="true"></div>
+  <div class="container contact-grid">
+    <div appReveal>
+      <p class="eyebrow">¿Listo para zarpar?</p>
+      <h2>Hablemos de tu<br>próximo proyecto<span>.</span></h2>
+      <p class="lead">Cuéntanos tu idea y construyamos juntos una experiencia digital que conecte, inspire y genere resultados.</p>
+    </div>
+
+    <form class="contact-form" [formGroup]="form" (ngSubmit)="submit()" appReveal [delay]="100" novalidate>
+      <div class="field">
+        <input id="name" type="text" autocomplete="name" placeholder=" " formControlName="name" [attr.aria-invalid]="hasError('name')">
+        <label for="name">Nombre</label>
+        @if (hasError('name')) { <small>Ingresa al menos dos caracteres.</small> }
+      </div>
+      <div class="field">
+        <input id="email" type="email" autocomplete="email" placeholder=" " formControlName="email" [attr.aria-invalid]="hasError('email')">
+        <label for="email">Correo electrónico</label>
+        @if (hasError('email')) { <small>Ingresa un correo válido.</small> }
+      </div>
+      <div class="field">
+        <input id="subject" type="text" placeholder=" " formControlName="subject" [attr.aria-invalid]="hasError('subject')">
+        <label for="subject">Asunto</label>
+        @if (hasError('subject')) { <small>Cuéntanos el motivo de tu mensaje.</small> }
+      </div>
+      <div class="field">
+        <textarea id="message" placeholder=" " formControlName="message" [attr.aria-invalid]="hasError('message')"></textarea>
+        <label for="message">Mensaje</label>
+        @if (hasError('message')) { <small>Escribe un mensaje de al menos diez caracteres.</small> }
+      </div>
+      <button class="btn" type="submit">Enviar mensaje <span aria-hidden="true">→</span></button>
+      <p class="secure">▣ Tu información está protegida. No compartimos tus datos.</p>
+      <p class="form-status" [class.is-success]="statusType() === 'success'" [class.is-error]="statusType() === 'error'" role="status" aria-live="polite">{{ status() }}</p>
+    </form>
+  </div>
+  <app-footer />
+</section>

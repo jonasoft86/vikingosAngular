@@ -1,0 +1,18 @@
+<section id="proyectos" class="section projects section--background">
+  <div class="section__background" aria-hidden="true"></div>
+  <div class="container">
+    <p class="eyebrow" appReveal>Proyectos destacados</p>
+    <h2 appReveal [delay]="80">Productos digitales<br>que hablan por sí solos<span>.</span></h2>
+    <p class="lead" appReveal [delay]="160">Estrategia, diseño y desarrollo a medida para crear experiencias digitales que generan impacto y resultados reales.</p>
+
+    <div class="project-grid">
+      @for (project of projects; track project.title; let index = $index) {
+        <article class="project-card" appReveal [delay]="index * 90" appTilt>
+          <img [src]="project.image" [alt]="'Vista del proyecto ' + project.title">
+          <div><p>{{ project.category }}</p><h3>{{ project.title }}</h3><span aria-hidden="true">→</span></div>
+        </article>
+      }
+    </div>
+    <a class="text-link" href="#contacto" appReveal>Ver todos los proyectos <span aria-hidden="true">→</span></a>
+  </div>
+</section>

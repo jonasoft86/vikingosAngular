@@ -1,0 +1,39 @@
+@mixin section-background($image, $position: center) {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url(#{$image}) $position / cover no-repeat;
+  transform: translateZ(0);
+}
+
+@mixin section-overlay($background) {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: $background;
+}
+
+@mixin tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  will-change: transform;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(255,255,255,.5), transparent 42%);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+
+  &.is-tilting {
+    transform: perspective(900px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-5px);
+    &::after { opacity: 1; }
+  }
+}

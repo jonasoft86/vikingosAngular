@@ -1,0 +1,17 @@
+@use 'base/reset';
+@use 'base/typography';
+@use 'atoms/buttons';
+@use 'layout/container';
+@use 'utilities/animations';
+
+app-root,
+app-header,
+app-scroll-rail,
+app-hero,
+app-services,
+app-projects,
+app-about,
+app-contact,
+app-footer {
+  display: block;
+}

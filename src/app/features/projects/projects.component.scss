@@ -1,0 +1,29 @@
+@use 'abstracts/tokens' as t;
+@use 'abstracts/mixins' as m;
+
+.projects { align-items: flex-start; }
+.projects::after { @include m.section-overlay(linear-gradient(180deg, rgba(t.$paper,.78) 0 28%, rgba(t.$paper,.14) 68%, rgba(219,232,239,.28))); }
+.section__background { @include m.section-background('/assets/backgrounds/projects-generated.png', center top); }
+.container { padding-top: 52px; }
+.project-grid { margin-top: 78px; display: grid; grid-template-columns: repeat(3,1fr); gap: 26px; }
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 14px;
+  background: rgba(255,255,255,.68);
+  box-shadow: 0 22px 70px rgba(t.$ink,.1);
+  backdrop-filter: blur(8px);
+  @include m.tilt-card;
+}
+.project-card img { width: 100%; aspect-ratio: 1.52; object-fit: cover; transition: transform .5s ease; }
+.project-card:hover img { transform: scale(1.035); }
+.project-card div { position: relative; padding: 26px 28px 32px; }
+.project-card p { color: t.$gold-dark; text-transform: uppercase; letter-spacing: .25em; font-weight: 800; font-size: 13px; }
+.project-card h3 { max-width: calc(100% - 44px); font-size: clamp(28px,2.2vw,34px); line-height: 1.08; }
+.project-card span { position: absolute; right: 28px; bottom: 38px; color: t.$gold-dark; font-size: 30px; }
+.text-link { color: t.$gold-dark; font-size: 18px; display: inline-flex; gap: 28px; margin-top: 38px; padding-bottom: 12px; border-bottom: 1px solid t.$line; }
+
+@media (max-width: t.$bp-desktop) { .project-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: t.$bp-tablet) { .project-grid { margin-top: 52px; gap: 18px; } }
+@media (max-width: 700px) { .project-grid { grid-template-columns: 1fr; } }

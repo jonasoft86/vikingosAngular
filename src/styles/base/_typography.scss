@@ -1,0 +1,47 @@
+@use '../abstracts/tokens' as t;
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  line-height: 1.02;
+  color: t.$ink;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(46px, 5.5vw, 84px); letter-spacing: -.035em; }
+h2 { font-size: clamp(38px, 4.6vw, 68px); letter-spacing: -.035em; }
+h3 { font-size: clamp(24px, 2vw, 34px); }
+h1 span, h2 span { color: t.$gold; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0 0 26px;
+  color: t.$gold-dark;
+  text-transform: uppercase;
+  letter-spacing: .46em;
+  font-weight: 700;
+  font-size: 13px;
+
+  &::after { content: ''; width: 96px; height: 1px; background: t.$line; }
+}
+
+.lead {
+  max-width: 620px;
+  margin: 26px 0 0;
+  font-size: clamp(17px, 1.25vw, 20px);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+@media (max-width: t.$bp-tablet) {
+  h2 { font-size: clamp(34px, 9vw, 50px); }
+  .lead { margin-top: 20px; line-height: 1.65; }
+}
+
+@media (max-width: t.$bp-mobile) {
+  h2 { font-size: clamp(31px, 9.5vw, 42px); }
+  .eyebrow { gap: 14px; letter-spacing: .3em; font-size: 11px; }
+  .eyebrow::after { width: 54px; }
+}

@@ -1,0 +1,24 @@
+<section id="servicios" class="section services section--background">
+  <div class="section__background" aria-hidden="true"></div>
+  <div class="container">
+    <div class="section-heading">
+      <div appReveal>
+        <p class="eyebrow">Servicios</p>
+        <h2>Soluciones digitales<br>que generan impacto<span>.</span></h2>
+        <p class="lead">Desarrollamos sitios web a medida, interfaces frontend de alto impacto, experiencias de usuario intuitivas y productos digitales escalables que conectan marcas con personas.</p>
+      </div>
+      <div class="note" appReveal [delay]="100"><i aria-hidden="true">⌖</i><p>Trabajo a medida, con calidad y escalabilidad en cada detalle.</p></div>
+    </div>
+
+    <div class="service-grid">
+      @for (service of services; track service.title; let index = $index) {
+        <article appReveal [delay]="index * 80" appTilt>
+          <div class="icon"><span>{{ service.icon }}</span></div>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+          <a href="#contacto">Saber más <span aria-hidden="true">→</span></a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

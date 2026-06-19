@@ -1,0 +1,29 @@
+<header class="site-header" [class.is-scrolled]="scrolled()">
+  <a class="brand" href="#inicio" aria-label="Vikingos Digitales" (click)="closeMenu()">
+    <img src="assets/logo-vikingos.svg" alt="Vikingos Digitales">
+  </a>
+
+  <button
+    class="hamburger"
+    type="button"
+    aria-label="Abrir menú"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="main-navigation"
+    (click)="toggleMenu()"
+  >
+    <span></span><span></span><span></span>
+  </button>
+
+  <nav id="main-navigation" class="nav" [class.is-open]="menuOpen()" aria-label="Navegación principal">
+    @for (item of navItems; track item.id) {
+      <a
+        [href]="'#' + item.id"
+        [class.is-active]="activeSection() === item.id"
+        [attr.aria-current]="activeSection() === item.id ? 'page' : null"
+        (click)="closeMenu()"
+      >{{ item.label }}</a>
+    }
+  </nav>
+
+  <a class="nav-cta" href="#contacto">Hablemos <span aria-hidden="true">→</span></a>
+</header>

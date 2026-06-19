@@ -1,107 +1,16 @@
 <!doctype html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vikingos Digitales — Agencia Digital</title>
-  <meta name="description" content="Diseño, desarrollo web y productos digitales a medida para marcas que buscan crecer." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/main.css" />
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="Vikingos Digitales"><img src="assets/logo-vikingos.svg" alt="Vikingos Digitales" /></a>
-    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Abrir menú" />
-    <label class="hamburger" for="nav-toggle" aria-hidden="true"><span></span><span></span><span></span></label>
-    <nav class="nav" aria-label="Navegación principal">
-      <a class="is-active" href="#inicio">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-    <a class="nav-cta" href="#contacto">Hablemos <span aria-hidden="true">→</span></a>
-  </header>
-
-  <main>
-    <aside class="scroll-rail" aria-hidden="true"><span></span><b>ᛘ</b><i></i><em></em><span></span><strong></strong><span></span></aside>
-
-    <section id="inicio" class="section hero">
-      <div class="hero-scene" aria-hidden="true">
-        <img class="hero-scene__mountains" src="assets/hero-layers/mountains.png" alt="" />
-        <img class="hero-scene__tide hero-scene__tide--back" src="assets/hero-layers/tide-back.png" alt="" />
-        <img class="hero-scene__tide hero-scene__tide--middle" src="assets/hero-layers/tide-middle.png" alt="" />
-        <img class="hero-scene__tide hero-scene__tide--front" src="assets/hero-layers/tide-front.png" alt="" />
-        <img class="hero-scene__ship" src="assets/hero-layers/ship.png" alt="" />
-      </div>
-      <div class="container hero__inner">
-        <div class="copy">
-          <p class="eyebrow">Agencia Digital</p>
-          <h1>Navegamos ideas.<br>Construimos<span class="hero__mobile-break"><br></span> experiencias digitales<span>.</span></h1>
-          <p class="lead">Desarrollamos sitios web a medida, interfaces frontend de alto impacto y productos digitales que conectan marcas con personas y generan resultados.</p>
-          <div class="actions"><a class="btn" href="#proyectos">Ver proyectos <span aria-hidden="true">→</span></a><a class="btn btn--ghost" href="#contacto">Hablemos <span aria-hidden="true">→</span></a></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="servicios" class="section services">
-      <div class="bg bg-services" aria-hidden="true"></div>
-      <div class="container">
-        <div class="section-heading">
-          <div><p class="eyebrow">Servicios</p><h2>Soluciones digitales<br>que generan impacto<span>.</span></h2><p class="lead">Desarrollamos sitios web a medida, interfaces frontend de alto impacto, experiencias de usuario intuitivas y productos digitales escalables que conectan marcas con personas.</p></div>
-          <div class="note"><i aria-hidden="true">⌖</i><p>Trabajo a medida, con calidad y escalabilidad en cada detalle.</p></div>
-        </div>
-        <div class="service-grid">
-          <article><div class="icon"><span>&lt;/&gt;</span></div><h3>Desarrollo web</h3><p>Sitios web a medida, rápidos, seguros y preparados para crecer con tu negocio.</p><a href="#contacto">Saber más <span aria-hidden="true">→</span></a></article>
-          <article><div class="icon"><span>▣</span></div><h3>Frontend UI</h3><p>Interfaces modernas, responsivas y de alto impacto construidas con tecnologías actuales.</p><a href="#contacto">Saber más <span aria-hidden="true">→</span></a></article>
-          <article><div class="icon"><span>♙</span></div><h3>UX y producto</h3><p>Experiencias intuitivas centradas en las personas que impulsan valor y conversión.</p><a href="#contacto">Saber más <span aria-hidden="true">→</span></a></article>
-          <article><div class="icon"><span>◔</span></div><h3>Soporte</h3><p>Acompañamiento continuo, mantenimiento y soporte técnico para sostener tu crecimiento.</p><a href="#contacto">Saber más <span aria-hidden="true">→</span></a></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="proyectos" class="section projects">
-      <div class="bg bg-projects" aria-hidden="true"></div>
-      <div class="container">
-        <p class="eyebrow">Proyectos destacados</p><h2>Productos digitales<br>que hablan por sí solos<span>.</span></h2><p class="lead">Estrategia, diseño y desarrollo a medida para crear experiencias digitales que generan impacto y resultados reales.</p>
-        <div class="project-grid">
-          <article class="project-card"><img src="assets/projects/nordic-store.svg" alt="Vista del proyecto Nordic Store" /><div><p>Comercio electrónico</p><h3>Nordic Store</h3><span aria-hidden="true">→</span></div></article>
-          <article class="project-card"><img src="assets/projects/fjord-analytics.svg" alt="Vista del proyecto Fjord Analytics" /><div><p>Plataforma SaaS</p><h3>Fjord Analytics</h3><span aria-hidden="true">→</span></div></article>
-          <article class="project-card"><img src="assets/projects/valhalla-training.svg" alt="Vista del proyecto Valhalla Training" /><div><p>Educación digital</p><h3>Valhalla Training</h3><span aria-hidden="true">→</span></div></article>
-        </div>
-        <a class="text-link" href="#contacto">Ver todos los proyectos <span aria-hidden="true">→</span></a>
-      </div>
-    </section>
-
-    <section id="nosotros" class="section about">
-      <div class="bg bg-about" aria-hidden="true"></div>
-      <div class="container">
-        <div class="about-top"><p class="eyebrow">Sobre nosotros</p><h2>Artesanos digitales.<br>Estrategas. Constructores<span>.</span></h2><p class="lead">En Vikingos Digitales combinamos estrategia, diseño y tecnología para crear productos que conectan marcas con personas y generan resultados reales. Trabajamos codo a codo contigo, con claridad y propósito en cada decisión.</p></div>
-        <div class="values"><article><i aria-hidden="true">⌖</i><h3>Pensamiento estratégico</h3><p>Alineamos objetivos de negocio con soluciones digitales efectivas.</p></article><article><i aria-hidden="true">♢</i><h3>Ejecución impecable</h3><p>Cuidamos cada detalle para entregar calidad sin excepciones.</p></article><article><i aria-hidden="true">♡</i><h3>Pasión por lo que hacemos</h3><p>Disfrutamos nuestro trabajo y eso se nota en cada proyecto.</p></article></div>
-        <div class="process"><div><p class="eyebrow">Nuestro proceso</p><h2>4 pasos. Un objetivo<br>en común<span>.</span></h2><p>Un proceso claro y colaborativo para convertir ideas en productos digitales escalables.</p></div><ol><li><span>01</span><i aria-hidden="true">⌖</i><h3>Descubrimiento</h3><p>Entendemos tu negocio, audiencia y objetivos para definir el camino correcto.</p></li><li><span>02</span><i aria-hidden="true">♘</i><h3>Estrategia</h3><p>Diseñamos la estrategia digital, la arquitectura de información y el plan de acción.</p></li><li><span>03</span><i aria-hidden="true">✎</i><h3>Diseño</h3><p>Creamos experiencias visuales y funcionales que comunican y convierten.</p></li><li><span>04</span><i aria-hidden="true">&lt;/&gt;</i><h3>Desarrollo</h3><p>Construimos soluciones sólidas, escalables y enfocadas en resultados.</p></li></ol></div>
-        <p class="closing">Colaboración constante. Comunicación clara. Resultados medibles.<br>Así es como navegamos juntos.</p>
-      </div>
-    </section>
-
-    <section id="contacto" class="section contact">
-      <div class="bg bg-contact" aria-hidden="true"></div>
-      <div class="container contact-grid">
-        <div><p class="eyebrow">¿Listo para zarpar?</p><h2>Hablemos de tu<br>próximo proyecto<span>.</span></h2><p class="lead">Cuéntanos tu idea y construyamos juntos una experiencia digital que conecte, inspire y genere resultados.</p></div>
-        <form class="contact-form">
-          <div class="field"><input id="name" name="name" type="text" autocomplete="name" placeholder=" " required><label for="name">Nombre</label></div>
-          <div class="field"><input id="email" name="email" type="email" autocomplete="email" placeholder=" " required><label for="email">Correo electrónico</label></div>
-          <div class="field"><input id="subject" name="subject" type="text" placeholder=" " required><label for="subject">Asunto</label></div>
-          <div class="field"><textarea id="message" name="message" placeholder=" " required></textarea><label for="message">Mensaje</label></div>
-          <button class="btn" type="submit">Enviar mensaje <span aria-hidden="true">→</span></button>
-          <p class="secure">▣ Tu información está protegida. No compartimos tus datos.</p>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-      <footer class="footer container"><img src="assets/logo-vikingos.svg" alt="Vikingos Digitales"><p>Navegamos ideas.<br>Construimos experiencias digitales<span>.</span></p><div><span>Síguenos</span><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Instagram">◎</a><a href="#" aria-label="Otra red social">◌</a></div></footer>
-    </section>
-  </main>
-  <script src="js/main.js" defer></script>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Vikingos Digitales — Agencia Digital</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Diseño, desarrollo web y productos digitales a medida para marcas que buscan crecer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
 </html>

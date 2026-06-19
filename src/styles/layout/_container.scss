@@ -1,0 +1,39 @@
+@use '../abstracts/tokens' as t;
+
+.container {
+  width: min(1210px, calc(100% - 96px));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 96px;
+  isolation: isolate;
+  scroll-margin-top: 72px;
+}
+
+.section--background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@media (min-width: 920px) {
+  .section__background { background-attachment: fixed !important; }
+}
+
+@media (max-width: t.$bp-tablet) {
+  .container { width: min(100% - 42px, 1210px); }
+  .section { min-height: auto; padding: 88px 0 72px; }
+  .section--background::after { background: rgba(t.$paper, .54) !important; }
+}
+
+@media (max-width: t.$bp-mobile) {
+  .container { width: min(100% - 32px, 1210px); }
+}

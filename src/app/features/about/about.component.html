@@ -1,0 +1,34 @@
+<section id="nosotros" class="section about section--background">
+  <div class="section__background" aria-hidden="true"></div>
+  <div class="container">
+    <div class="about-top" appReveal>
+      <p class="eyebrow">Sobre nosotros</p>
+      <h2>Artesanos digitales.<br>Estrategas. Constructores<span>.</span></h2>
+      <p class="lead">En Vikingos Digitales combinamos estrategia, diseño y tecnología para crear productos que conectan marcas con personas y generan resultados reales. Trabajamos codo a codo contigo, con claridad y propósito en cada decisión.</p>
+    </div>
+
+    <div class="values">
+      @for (value of values; track value.title; let index = $index) {
+        <article appReveal [delay]="index * 80">
+          <i aria-hidden="true">{{ value.icon }}</i><h3>{{ value.title }}</h3><p>{{ value.description }}</p>
+        </article>
+      }
+    </div>
+
+    <div class="process">
+      <div appReveal>
+        <p class="eyebrow">Nuestro proceso</p>
+        <h2>4 pasos. Un objetivo<br>en común<span>.</span></h2>
+        <p>Un proceso claro y colaborativo para convertir ideas en productos digitales escalables.</p>
+      </div>
+      <ol>
+        @for (step of steps; track step.number; let index = $index) {
+          <li appReveal [delay]="index * 100">
+            <span>{{ step.number }}</span><i aria-hidden="true">{{ step.icon }}</i><h3>{{ step.title }}</h3><p>{{ step.description }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+    <p class="closing" appReveal>Colaboración constante. Comunicación clara. Resultados medibles.<br>Así es como navegamos juntos.</p>
+  </div>
+</section>

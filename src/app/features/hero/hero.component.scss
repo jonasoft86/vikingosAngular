@@ -1,0 +1,108 @@
+@use 'abstracts/tokens' as t;
+
+.hero {
+  min-height: 100svh;
+  padding: 112px 0 32px;
+  background: #fbf8f4;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    inset: 0 auto 0 0;
+    width: min(68%, 980px);
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(251,248,244,.96), rgba(251,248,244,.78) 58%, transparent);
+  }
+
+  .eyebrow { margin-bottom: 6px; }
+  h1 { font-size: clamp(38px, 4.2vw, 64px); }
+}
+
+.hero__mobile-break { display: none; }
+.hero__inner { position: relative; z-index: 1; align-self: flex-start; padding-top: 28px; }
+.copy { max-width: 690px; }
+.actions { display: flex; gap: 22px; margin-top: 42px; }
+
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #fbf8f4;
+
+  img { position: absolute; max-width: none; user-select: none; will-change: transform, translate; }
+}
+
+.hero-scene__mountains,
+.hero-scene__tide {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+
+.hero-scene__mountains { z-index: 1; object-position: center top; }
+.hero-scene__tide { transform-origin: center bottom; }
+.hero-scene__tide--back { z-index: 2; opacity: .62; animation: tide-back 12s ease-in-out infinite alternate; }
+.hero-scene__tide--middle { z-index: 3; opacity: .72; animation: tide-middle 9s ease-in-out infinite alternate; }
+.hero-scene__tide--front { z-index: 4; opacity: .8; animation: tide-front 7s ease-in-out infinite alternate; }
+
+.hero-scene__ship,
+.hero-scene__foreground-tide,
+.hero-scene__hull-wave {
+  right: -4vw;
+  width: min(56vw, 860px);
+  transform-origin: center bottom;
+}
+
+.hero-scene__ship {
+  z-index: 5;
+  bottom: -7vh;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 18px 24px rgba(t.$ink,.12));
+  animation: ship-float 6s ease-in-out infinite;
+}
+
+.hero-scene__foreground-tide {
+  z-index: 6;
+  bottom: -7vh;
+  opacity: .9;
+  animation: foreground-tide 7.5s ease-in-out infinite alternate;
+}
+
+.hero-scene__hull-wave--back { z-index: 7; bottom: -3vh; opacity: .55; clip-path: inset(34% 0 12%); animation: hull-back 8.5s ease-in-out infinite alternate; }
+.hero-scene__hull-wave--front { z-index: 8; bottom: -1vh; opacity: .82; clip-path: inset(46% 0 0); animation: hull-front 6.5s ease-in-out infinite alternate; }
+
+@keyframes tide-back { from { transform: translate3d(-1.5%,12%,0) scale(1.04); } to { transform: translate3d(1.5%,10%,0) scale(1.06); } }
+@keyframes tide-middle { from { transform: translate3d(1.2%,22%,0) scale(1.05); } to { transform: translate3d(-1.2%,19%,0) scale(1.07); } }
+@keyframes tide-front { from { transform: translate3d(-1%,32%,0) scale(1.07); } to { transform: translate3d(1%,29%,0) scale(1.09); } }
+@keyframes ship-float { 0%,100% { transform: translateY(0) rotate(-.35deg); } 50% { transform: translateY(-9px) rotate(.35deg); } }
+@keyframes foreground-tide { from { transform: translate3d(-1.2%,4px,0) scale(1.02,1); } to { transform: translate3d(1.2%,-5px,0) scale(1.035,1.04); } }
+@keyframes hull-back { from { transform: translate3d(1.5%,2px,0) scale(1.04,.9); } to { transform: translate3d(-1.5%,-5px,0) scale(1.08,1.02); } }
+@keyframes hull-front { from { transform: translate3d(-1.8%,5px,0) scale(1.05,.94); } to { transform: translate3d(1.8%,-4px,0) scale(1.09,1.06); } }
+
+@media (max-width: t.$bp-tablet) {
+  .hero { min-height: 100svh; padding: 82px 0 28px; }
+  .hero__inner { padding-top: 12px; width: 100%; max-width: calc(100vw - 42px); }
+  .hero::after { width: 100%; background: linear-gradient(180deg, rgba(251,248,244,.92) 0 48%, rgba(251,248,244,.35) 70%, transparent); }
+  .hero-scene__mountains { object-position: 62% top; }
+  .hero-scene__ship, .hero-scene__foreground-tide, .hero-scene__hull-wave { right: -2%; width: 88%; }
+  .hero-scene__ship, .hero-scene__foreground-tide { bottom: -1%; }
+  .hero-scene__hull-wave--back { bottom: 0; }
+  .hero-scene__hull-wave--front { bottom: 1.5%; }
+  .hero h1 { font-size: clamp(29px, 7.6vw, 40px); }
+  .hero__mobile-break { display: initial; }
+  .copy, .actions { width: 100%; min-width: 0; }
+  .actions { display: grid; gap: 12px; margin-top: 28px; }
+}
+
+@media (max-width: t.$bp-mobile) {
+  .hero { padding-top: 76px; }
+  .hero__inner { max-width: calc(100vw - 32px); }
+  .hero h1 { font-size: clamp(28px, 8.1vw, 36px); }
+  .hero .lead { font-size: 16px; }
+  .actions { margin-top: 24px; }
+}

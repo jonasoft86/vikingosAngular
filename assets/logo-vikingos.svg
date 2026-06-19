@@ -1,0 +1,11 @@
+<svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="#B9822B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="34" cy="36" r="21"/><circle cx="34" cy="36" r="9"/>
+    <path d="M34 7v58M5 36h58M18 20l32 32M50 20 18 52" opacity=".75"/>
+    <path d="M34 15c8 5 8 37 0 42-8-5-8-37 0-42Z"/>
+    <path d="M25 31h18M25 41h18"/>
+    <path d="M22 27c-7-6-12-7-16-2 7 1 11 4 14 9M46 27c7-6 12-7 16-2-7 1-11 4-14 9"/>
+  </g>
+  <text x="78" y="33" fill="#B9822B" font-family="Georgia, serif" font-size="18" letter-spacing="2">VIKINGOS</text>
+  <text x="78" y="53" fill="#B9822B" font-family="Georgia, serif" font-size="18" letter-spacing="2">DIGITALES</text>
+</svg>

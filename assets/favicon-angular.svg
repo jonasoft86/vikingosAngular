@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="angular" x1="8" y1="8" x2="56" y2="56">
+      <stop stop-color="#f00646"/>
+      <stop offset="1" stop-color="#9b1be1"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#angular)" d="M32 3 58 12l-4 34L32 61 10 46 6 12 32 3Z"/>
+  <path fill="#fff" d="m32 13-15 34h7l3-8h10l3 8h7L32 13Zm0 12 3 8h-6l3-8Z"/>
+</svg>

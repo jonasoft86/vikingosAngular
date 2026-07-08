@@ -13,14 +13,27 @@ export class HeaderComponent implements OnDestroy {
   readonly activeSection = signal('inicio');
   readonly menuOpen = signal(false);
   readonly scrolled = signal(false);
-  private observer?: IntersectionObserver;
-  private readonly onScroll = (): void => this.scrolled.set(window.scrollY > 20);
+  private sections: HTMLElement[] = [];
+  private ticking = false;
+  private readonly onScroll = (): void => {
+    if (this.ticking) return;
+    this.ticking = true;
+    requestAnimationFrame(() => {
+      this.updateMenuPosition();
+      this.ticking = false;
+    });
+  };
+  private readonly onHashChange = (): void => {
+    requestAnimationFrame(() => this.updateMenuPosition());
+  };
 
   constructor() {
     afterNextRender(() => {
       window.addEventListener('scroll', this.onScroll, { passive: true });
-      this.onScroll();
-      this.observeSections();
+      window.addEventListener('hashchange', this.onHashChange);
+      this.sections = Array.from(document.querySelectorAll<HTMLElement>('main > section[id]'));
+      this.updateMenuPosition();
+      requestAnimationFrame(() => this.updateMenuPosition());
     });
   }
 
@@ -32,19 +45,27 @@ export class HeaderComponent implements OnDestroy {
     this.menuOpen.set(false);
   }
 
-  private observeSections(): void {
-    const sections = document.querySelectorAll<HTMLElement>('main > section[id]');
-    this.observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible) this.activeSection.set(visible.target.id);
-    }, { rootMargin: '-28% 0px -58% 0px', threshold: [0.05, 0.25, 0.5] });
-    sections.forEach((section) => this.observer?.observe(section));
+  setActiveSection(sectionId: string): void {
+    this.activeSection.set(sectionId);
+    this.closeMenu();
+  }
+
+  private updateMenuPosition(): void {
+    this.scrolled.set(window.scrollY > 20);
+    if (!this.sections.length) return;
+
+    const headerHeight = document.querySelector<HTMLElement>('.site-header')?.offsetHeight ?? 0;
+    const readingLine = headerHeight + window.innerHeight * 0.32;
+    const currentSection = this.sections.reduce((current, section) => {
+      const top = section.getBoundingClientRect().top;
+      return top <= readingLine ? section : current;
+    }, this.sections[0]);
+
+    this.activeSection.set(currentSection.id);
   }
 
   ngOnDestroy(): void {
     window.removeEventListener('scroll', this.onScroll);
-    this.observer?.disconnect();
+    window.removeEventListener('hashchange', this.onHashChange);
   }
 }

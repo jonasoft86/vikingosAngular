@@ -20,7 +20,7 @@
         [href]="'#' + item.id"
         [class.is-active]="activeSection() === item.id"
         [attr.aria-current]="activeSection() === item.id ? 'page' : null"
-        (click)="closeMenu()"
+        (click)="setActiveSection(item.id)"
       >{{ item.label }}</a>
     }
   </nav>
